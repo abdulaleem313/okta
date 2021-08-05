@@ -31,6 +31,7 @@ body {
   color: white;
   grid-column-end: 3;
   grid-column-start: 1;
+  font-weight: bold;
 }
 .ienergy {
     font-family: 'Yantramanav', sans-serif;
