@@ -30,6 +30,25 @@
 #okta-signin-password { padding-left: 10px !important;
   }
 
+  .hal {
+    font-family: 'Michroma', sans-serif;
+    display: flex;
+    padding: 0 0 3em 1em;
+    align-items: center;
+    color: white;
+    grid-column-end: 3;
+    grid-column-start: 1;
+  }
+  
+  .ienergy {
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 6em;
+    width: 500px;
+    background-image: url(https://user-images.githubusercontent.com/1485940/128330384-97334149-3fb2-4055-aad9-fbf6d506d387.jpg);
+    background-repeat: round;
+  }
+  
+  
 .auth-header {
   display: none;
 }
