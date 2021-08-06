@@ -28,7 +28,7 @@ body {
   background-repeat: no-repeat;
   font-family: 'Michroma', sans-serif;
   display: flex;
-  padding: 0 0 3em 1em;
+  padding: 0 0 5em 1em;
   align-items: center;
   color: white;
   grid-column-end: 3;
@@ -43,6 +43,9 @@ body {
     background-repeat: round;
   }
 
+  #okta-sign-in .o-form .o-form-input {
+    padding-left:0px !important;
+    }
   
 #okta-sign-in .icon {
     display: none;
