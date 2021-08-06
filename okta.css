@@ -43,7 +43,7 @@ body {
     background-repeat: round;
   }
   #okta-sign-in .o-form .o-form-input .input-icon+input, #okta-sign-in .o-form .o-form-input .input-icon+input+input {
-    padding-left:0px !important;
+    padding-left: 10px !important;
     }
   
 #okta-sign-in .icon {
