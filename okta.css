@@ -42,8 +42,7 @@ body {
     background-image: url('https://abdulaleem313.github.io/okta/ienergy-logo.jpg');
     background-repeat: round;
   }
-
-  #okta-sign-in .o-form .o-form-input {
+  #okta-sign-in .o-form .o-form-input .input-icon+input, #okta-sign-in .o-form .o-form-input .input-icon+input+input {
     padding-left:0px !important;
     }
   
