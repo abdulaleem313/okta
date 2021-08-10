@@ -84,8 +84,11 @@ body {
 	text-align: left !important;
 	font-weight: bold !important;
 }
-.auth-container {
+#okta-sign-in.auth-container.main-container {
   min-height: 500px;
+}
+#okta-sign-in .auth-content {
+  padding: 60px 80px 20px;
 }
 
 #okta-sign-in.auth-container h2,
