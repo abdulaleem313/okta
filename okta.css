@@ -48,10 +48,6 @@ body {
 	padding-left: 10px !important;
 }
 
-.auth-box {
-  
-  transform: scale(1, 1.1);
-}
 .okta-login-container {
 	box-shadow: 4px 4px 20px 3px black;
 }
@@ -87,6 +83,9 @@ body {
 	font-size: 2em !important;
 	text-align: left !important;
 	font-weight: bold !important;
+}
+.auth-container {
+  min-height: 500px;
 }
 
 #okta-sign-in.auth-container h2,
