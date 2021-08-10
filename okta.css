@@ -86,9 +86,26 @@ body {
 }
    
 @media (min-width: 640px){
-
-
   .ienergy {
-    width: 350px;
+    width: 90px;
   }
+}
+   
+@media (min-width: 768px){
+  .ienergy {
+    width: 320px;
   }
+}
+
+   
+@media (min-width: 1024px){
+  .ienergy {
+    width: 430px;
+  }
+}
+
+@media (min-width: 1200px){
+  .ienergy {
+    width: 600px;
+  }
+}
