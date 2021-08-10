@@ -73,6 +73,9 @@ body {
   text-align: left !important;
   font-weight: bold !important;
 }
+#okta-sign-in.auth-container h2, #okta-sign-in.auth-container h3 {
+  margin-bottom: 50px;
+}
 
 .input-fix {
   border-radius: 0 !important;
