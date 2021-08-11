@@ -101,7 +101,10 @@ body {
 }
 
 #okta-sign-in.auth-container .okta-form-input-field.focused-input {
-	border-color: #760000 ;
+	border-color: #760000;
+}
+#okta-sign-in .focused-input, #okta-sign-in .link.help:focus {
+	border-color: #760000;
 }
 .input-fix {
 	border-radius: 0 !important;
