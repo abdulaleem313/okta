@@ -48,7 +48,11 @@ body {
 	padding-left: 10px !important;
 }
 
-.okta-login-container {
+#okta-sign-in .infobox>.icon {
+	display: block;
+}
+
+#okta-sign-in .okta-auth {
 	box-shadow: 4px 4px 20px 3px black;
 }
 
