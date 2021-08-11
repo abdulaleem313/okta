@@ -52,7 +52,7 @@ body {
 	display: block;
 }
 
-#okta-sign-in .okta-auth {
+.auth-box .okta-auth {
 	box-shadow: 4px 4px 20px 3px black;
 }
 
