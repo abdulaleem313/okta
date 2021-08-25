@@ -43,6 +43,11 @@ body {
 	background-repeat: round;
 }
 
+#okta-sign-in.auth-container .okta-form-subtitle, #okta-sign-in.auth-container .okta-form-label {
+    color: #5c6971;
+    max-width: 400px;
+}
+
 #okta-sign-in .o-form .o-form-input .input-icon+input,
 #okta-sign-in .o-form .o-form-input .input-icon+input+input {
 	padding-left: 10px !important;
