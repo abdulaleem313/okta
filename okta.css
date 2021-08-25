@@ -37,7 +37,7 @@ body {
 .ienergy {
 	font-family: 'Yantramanav', sans-serif;
 	font-size: 6em;
-	min-width: 350px;
+	width: 350px;
 	box-shadow: 4px 4px 20px 3px black;
 	background-image: url('https://abdulaleem313.github.io/okta/ienergy-logo.jpg');
 	background-repeat: round;
@@ -113,7 +113,7 @@ body {
 .button-primary {
 	background: black !important;
 }
-/* 
+
 @media (min-width: 640px) and (max-width: 767px) {
 	.ienergy {
 		width: 310px;
@@ -136,4 +136,4 @@ body {
 	.ienergy {
 		width: 600px;
 	}
-} */
+}
