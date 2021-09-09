@@ -105,6 +105,9 @@ body {
 	margin-bottom: 50px;
 }
 
+#okta-sign-in.auth-container .okta-form-infobox-error infobox infobox-error {
+	max-width: 400px;
+}
 #okta-sign-in.auth-container .okta-form-input-field.focused-input {
 	border-color: #760000;
 }
