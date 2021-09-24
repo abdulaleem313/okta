@@ -22,7 +22,7 @@ body {
 }
 
 .hal {
-	background-image: url('https://www.landmark.solutions/Portals/0/Images/LMSImages/Landmak-Logo-white.png');
+	background-image: url('./landmak-logo-white.png');
 	background-repeat: no-repeat;
 	font-family: 'Michroma', sans-serif;
 	display: flex;
@@ -39,7 +39,7 @@ body {
 	font-size: 6em;
 	min-width: 450px;
 	box-shadow: 4px 4px 20px 3px black;
-	background-image: url('https://abdulaleem313.github.io/okta/ienergy-logo.jpg');
+	background-image: url('./ienergy-logo.jpg');
 	background-repeat: round;
 }
 
