@@ -7,14 +7,27 @@ html {
 }
 
 body {
-	background: rgb(81, 0, 0);
-	background: linear-gradient(87deg, rgba(81, 0, 0, 1) 0%, rgba(34, 0, 0, 1) 100%);
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
+            background: linear-gradient(87deg, rgba(81, 0, 0, 1) 0%, rgba(34, 0, 0, 1) 100%) !important;
+        }
+
+        #okta-sign-in {
+
+            margin: unset !important;
+            width: 100% !important;
+        }
+
+        .okta-container .applogin-banner .applogin-background {
+            display: none;
+        }
+
+        #okta-login-container.login-container {
+            margin-top: 0px !important;
+        }
 
 .auth-box {
 	display: grid;

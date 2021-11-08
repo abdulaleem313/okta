@@ -12,10 +12,19 @@
         body {
             background: linear-gradient(87deg, rgba(81, 0, 0, 1) 0%, rgba(34, 0, 0, 1) 100%) !important;
         }
+
         #okta-sign-in {
-            
+
             margin: unset !important;
             width: 100% !important;
+        }
+
+        .okta-container .applogin-banner .applogin-background {
+            display: none;
+        }
+
+        #okta-login-container.login-container {
+            margin-top: 0px !important;
         }
     </style>
     <link rel="stylesheet" href="https://test.ienergycloud.solutions/style.css">
@@ -40,47 +49,24 @@
         // "config" object contains default widget configuration
         // with any custom overrides defined in your admin settings.
         
-       
-        var orgUrl = 'https://landmarkhosting-admin.oktapreview.com'; //URL of Okta Tenant
+        let config = {...OktaUtil.getSignInWidgetConfig(),
+                      i18n: {
+      					en: {
+                          'password.reset': 'Reset Password',
+                          'password.forgot.sendEmail': 'Reset Password',
+                          'errors.E0000004': 'Incorrect login information. After 3 failed attempts your account will be locked.',
+                          'errors.E0000069': 'Your account is locked because of too many authentication attempts.',
+                          'password.reset.title': 'Reset your password',
+                          'recovery.sms.hint': 'Text can only be used if a mobile phone number has been configured.',
+                          'recovery.sms': 'Text',
+                          'password.reset.title.generic': 'Create new password',
+                          'account.unlock.sendText': 'Send Text'
+                        }
+                      }
+                     };
 
-        var webSiteUrl = 'https://login.dawlmkscandev02.landmarksoftware.cloud'; //URL of site hosting Login Widget
-        var oktaSignIn = new OktaSignIn({
-            i18n: {
-                en: {
-                    'password.reset': 'Reset Password',
-                    'password.forgot.sendEmail': 'Reset Password',
-                    'errors.E0000004': 'Incorrect login information. After 3 failed attempts your account will be locked.',
-                    'errors.E0000069': 'Your account is locked because of too many authentication attempts.',
-                    'password.reset.title': 'Reset your password',
-                    'recovery.sms.hint': 'Text can only be used if a mobile phone number has been configured.',
-                    'recovery.sms': 'Text',
-                    'password.reset.title.generic': 'Create new password',
-                    'account.unlock.sendText': 'Send'
-                }
-            },
-
-            baseUrl: orgUrl,
-
-            clientId: '0oaebvdradAWPRYyo0h7', // ID of OIDC app in Okta
-
-            logo: '/logo.png',
-
-            redirectUri: webSiteUrl,
-
-            authParams: {
-
-                responseType: ['id_token', 'token'],
-
-                scopes: ['openid', 'profile'],
-
-                issuer: 'https://ienergycloud.oktapreview.com/oauth2/auseblc3wv9PSUKv10h7', //URL of OAuth server in Okta
-
-                authorizeUrl: 'https://ienergycloud.oktapreview.com/oauth2/auseblc3wv9PSUKv10h7/v1/authorize'
-
-            },
-
-
-        });
+        // Render the Okta Sign-In Widget
+        var oktaSignIn = new OktaSignIn(config);
         oktaSignIn.renderEl({ el: '#okta-login-container' },
             OktaUtil.completeLogin,
             function(error) {
