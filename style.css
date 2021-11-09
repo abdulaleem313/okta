@@ -91,6 +91,10 @@ body {
 	width: 45%;
 }
 
+#okta-sign-in.auth-container .button {
+	background: #4a4a4a !important;
+	background-color: #bbb #5e5e5e #333 !important;
+}
 #okta-sign-in .mfa-verify-passcode .auth-passcode {
 	width: inherit !important;
 }
@@ -208,11 +212,11 @@ body {
 .input-fix {
 	border-radius: 0 !important;
 }
-
+/* 
 .button-primary {
 	background: #4a4a4a !important;
 	background-color: #bbb #5e5e5e #333 !important;
-}
+} */
 
 @media (min-width: 640px) and (max-width: 767px) {
 	.ienergy {
