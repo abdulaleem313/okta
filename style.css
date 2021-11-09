@@ -176,7 +176,7 @@ body {
 }
 
 .auth-header {
-	display: none;
+	/* display: none; */
 }
 
 .okta-form-title {
