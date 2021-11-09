@@ -150,6 +150,10 @@ body {
 #okta-sign-in .beacon-loading:after {
 	border-top-color: #ce1111 !important;
 }
+#okta-sign-in.auth-container input[type=button]:focus, #okta-sign-in.auth-container input[type=submit]:focus {
+    box-shadow: 0 0 4px #4a4a4a;
+    border-color: #4a4a4a;
+}
 #okta-sign-in .infobox>.icon {
 	display: block;
 }
