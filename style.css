@@ -132,7 +132,8 @@ body {
 }
 
 .button-primary {
-	background: black !important;
+	background: #4a4a4a !important;
+	background-color: #bbb #5e5e5e #333 !important;
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
