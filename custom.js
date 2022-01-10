@@ -8,7 +8,7 @@ function showRegisterBtn() {
         var refUrl = new URL(referrer);
         var a = document.createElement("A");
         a.innerText = "Register";
-        a.setAttribute('href', refUrl.host + '/signup');
+        a.setAttribute('href', refUrl.origin + '/signup');
         var node = document.createElement("LI");
         node.appendChild(a);
         document.getElementById("help-links-container").appendChild(node);
