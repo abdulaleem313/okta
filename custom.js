@@ -12,14 +12,14 @@ function showRegisterBtn() {
         return;
     }
     referrer = getParameterByName('redirect_uri', windHref) ;
-
-    if (referrer) {
-        var refUrl = new URL(referrer);
+    var refUrl = new URL(referrer);
+    if (referrer && refUrl && refUrl.origin) {
+        
         var a = document.createElement("A");
         a.innerText = "Register";
         var redirectUri;
         domainMapping.forEach(dm=> {
-            var found = dm.matchingKeys.find(mk => string.includes(mk));
+            var found = dm.matchingKeys.find(mk => refUrl.origin.includes(mk));
             if(found) {
                 redirectUri = dm;
             }
