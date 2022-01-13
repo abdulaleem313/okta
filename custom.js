@@ -1,14 +1,30 @@
 var windHref=   window.location.href;
+var domainMapping = [{
+    domain: 'https://decisionspace365.io/',
+    matchingKeys: ['decisionspace365.io']
+}]
 function showRegisterBtn() {
-    var referrer = document.referrer;
-  if(!referrer) {
-      referrer = getParameterByName('redirect_uri', windHref) ;
-  }
+    var referrer = '' 
+    // var referrer = document.referrer;
+    // if(!referrer) {}
+    if(!windHref){
+        console.log('no windows href')
+        return;
+    }
+    referrer = getParameterByName('redirect_uri', windHref) ;
+
     if (referrer) {
         var refUrl = new URL(referrer);
         var a = document.createElement("A");
         a.innerText = "Register";
-        a.setAttribute('href', refUrl.origin + '/signup');
+        var redirectUri;
+        domainMapping.forEach(dm=> {
+            var found = dm.matchingKeys.find(mk => string.includes(mk));
+            if(found) {
+                redirectUri = dm;
+            }
+        })
+        a.setAttribute('href', redirectUri + '/signup');
         var node = document.createElement("LI");
         node.appendChild(a);
         document.getElementById("help-links-container").appendChild(node);
