@@ -2,7 +2,12 @@ var windHref=   window.location.href;
 var domainMapping = [{
     domain: 'https://decisionspace365.io/',
     matchingKeys: ['decisionspace365.io']
+},
+{
+    domain: 'https://getting-started.distwf5.dawlmkscandev02.landmarksoftware.io/',
+    matchingKeys: ['landmarksoftware.io']
 }]
+
 function showRegisterBtn() {
     var referrer = '' 
     // var referrer = document.referrer;
