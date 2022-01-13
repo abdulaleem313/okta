@@ -17,7 +17,7 @@ function showRegisterBtn() {
         return;
     }
     referrer = getParameterByName('redirect_uri', windHref) ;
-    var refUrl = new URL(referrer);
+    var refUrl = referrer ? new URL(referrer): null;
     if (referrer && refUrl && refUrl.origin) {
         
         var a = document.createElement("A");
@@ -26,7 +26,7 @@ function showRegisterBtn() {
         domainMapping.forEach(dm=> {
             var found = dm.matchingKeys.find(mk => refUrl.origin.includes(mk));
             if(found) {
-                redirectUri = dm;
+                redirectUri = dm.domain;
             }
         })
         a.setAttribute('href', redirectUri + '/signup');
