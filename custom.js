@@ -34,9 +34,9 @@ function showRegisterBtn() {
         node.appendChild(a);
         
         document.getElementById("help-links-container").appendChild(node);
-        // document.getElementById("help-links-container").addEventListener('click', event => {
-        //     document.getElementById("help-links-container").appendChild(node);
-        // });
+        document.getElementById("help-links-container").addEventListener('click', event => {
+            document.getElementById("help-links-container").appendChild(node);
+        });
     }
 }
 setTimeout(() => {
