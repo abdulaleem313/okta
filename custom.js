@@ -13,37 +13,26 @@ var domainMapping = [{
 }]
 
 function showRegisterBtn() {
-    var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication 
-    && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
-    
+    var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
+        && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
 
-    var refUrl = requestUrl ? new URL(requestUrl): null;
+    var refUrl = requestUrl ? new URL(requestUrl) : null;
     if (requestUrl && refUrl && refUrl.origin) {
-        
+
         var a = document.createElement("A");
         a.innerText = "Register";
         var redirectUri;
-        domainMapping.forEach(dm=> {
+        domainMapping.forEach(dm => {
             var found = dm.matchingKeys.find(mk => refUrl.origin.includes(mk));
-            if(found) {
+            if (found) {
                 redirectUri = dm.domain;
             }
         })
-        a.setAttribute('href', redirectUri + '/signup');
-        var node = document.createElement("LI");
-        node.appendChild(a);
-        
-        // document.getElementById("help-links-container").appendChild(node);
-        // document.getElementById("help-links-container").addEventListener('click', event => {
-        //     document.getElementById("help-links-container").appendChild(node);
-        // });
+
         return [{
-                text: 'Register',
-                href:  redirectUri + '/signup'
-              }];
+            text: 'Register',
+            href: redirectUri + '/signup'
+        }];
     }
     return null;
 }
-// setTimeout(() => {
-//     showRegisterBtn();
-// }, 1000);
