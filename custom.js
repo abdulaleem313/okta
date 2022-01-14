@@ -34,6 +34,12 @@ function showRegisterBtn() {
             }
         })
         a.setAttribute('href', redirectUri + '/signup');
+        if (OktaUtil && OktaUtil.getSignInWidgetConfig()) {
+            OktaUtil.getSignInWidgetConfig().helpLinks.custom.push({ 
+                text: 'Register',
+                href: redirectUri
+              })
+        }
         var node = document.createElement("LI");
         node.appendChild(a);
         document.getElementById("help-links-container").appendChild(node);
