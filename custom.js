@@ -30,20 +30,11 @@ function showRegisterBtn() {
             }
         })
         a.setAttribute('href', redirectUri + '/signup');
-        var oktaUtil = OktaUtil.getSignInWidgetConfig()
-        if (oktaUtil) {
-            oktaUtil.helpLinks.custom.push({ 
-                text: 'Register',
-                href: redirectUri
-              })
-        }
-        oktaData.signIn.customButtons.push( {
-            text: 'What is Okta?',
-            href: 'https://acme.com/what-is-okta'
-          })
-        // var node = document.createElement("LI");
-        // node.appendChild(a);
-        // document.getElementById("help-links-container").appendChild(node);
+        var node = document.createElement("LI");
+        node.appendChild(a);
+        document.getElementById("help-links-container").addEventListener('click', event => {
+            document.getElementById("help-links-container").appendChild(node);
+        });
     }
 }
 setTimeout(() => {
