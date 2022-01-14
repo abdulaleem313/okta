@@ -37,10 +37,10 @@ function showRegisterBtn() {
         // document.getElementById("help-links-container").addEventListener('click', event => {
         //     document.getElementById("help-links-container").appendChild(node);
         // });
-        return {
+        return [{
                 text: 'Register',
                 href:  redirectUri + '/signup'
-              };
+              }];
     }
     return null;
 }
