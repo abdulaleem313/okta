@@ -1,4 +1,4 @@
-var windHref=   window.location.href;
+
 var domainMapping = [{
     domain: 'https://decisionspace365.io',
     matchingKeys: ['decisionspace365.io']
@@ -13,16 +13,12 @@ var domainMapping = [{
 }]
 
 function showRegisterBtn() {
-    var referrer = '' 
-    // var referrer = document.referrer;
-    // if(!referrer) {}
-    if(!windHref){
-        console.log('no windows href')
-        return;
-    }
-    referrer = getParameterByName('redirect_uri', windHref) ;
-    var refUrl = referrer ? new URL(referrer): null;
-    if (referrer && refUrl && refUrl.origin) {
+    var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication 
+    && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
+    
+
+    var refUrl = requestUrl ? new URL(requestUrl): null;
+    if (requestUrl && refUrl && refUrl.origin) {
         
         var a = document.createElement("A");
         a.innerText = "Register";
@@ -49,14 +45,6 @@ function showRegisterBtn() {
         // node.appendChild(a);
         // document.getElementById("help-links-container").appendChild(node);
     }
-}
-function getParameterByName(name, url = window.location.href) {
-name = name.replace(/[\[\]]/g, '\\$&');
-var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-results = regex.exec(url);
-if (!results) return null;
-if (!results[2]) return '';
-return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 setTimeout(() => {
     showRegisterBtn();
