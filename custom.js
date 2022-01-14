@@ -34,8 +34,9 @@ function showRegisterBtn() {
             }
         })
         a.setAttribute('href', redirectUri + '/signup');
-        if (OktaUtil && OktaUtil.getSignInWidgetConfig()) {
-            OktaUtil.getSignInWidgetConfig().helpLinks.custom.push({ 
+        var oktaUtil = OktaUtil.getSignInWidgetConfig()
+        if (oktaUtil) {
+            oktaUtil.helpLinks.custom.push({ 
                 text: 'Register',
                 href: redirectUri
               })
