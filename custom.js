@@ -41,9 +41,9 @@ function showRegisterBtn() {
                 href: redirectUri
               })
         }
-        var node = document.createElement("LI");
-        node.appendChild(a);
-        document.getElementById("help-links-container").appendChild(node);
+        // var node = document.createElement("LI");
+        // node.appendChild(a);
+        // document.getElementById("help-links-container").appendChild(node);
     }
 }
 function getParameterByName(name, url = window.location.href) {
