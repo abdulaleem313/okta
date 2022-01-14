@@ -6,6 +6,10 @@ var domainMapping = [{
 {
     domain: 'https://getting-started.distwf5.dawlmkscandev02.landmarksoftware.io',
     matchingKeys: ['landmarksoftware.io']
+},
+{
+    domain: 'https://geoweb.neftex.com/',
+    matchingKeys: ['neftex.com']
 }]
 
 function showRegisterBtn() {
