@@ -33,12 +33,17 @@ function showRegisterBtn() {
         var node = document.createElement("LI");
         node.appendChild(a);
         
-        document.getElementById("help-links-container").appendChild(node);
-        document.getElementById("help-links-container").addEventListener('click', event => {
-            document.getElementById("help-links-container").appendChild(node);
-        });
+        // document.getElementById("help-links-container").appendChild(node);
+        // document.getElementById("help-links-container").addEventListener('click', event => {
+        //     document.getElementById("help-links-container").appendChild(node);
+        // });
+        return {
+                text: 'Register',
+                href:  redirectUri + '/signup'
+              };
     }
+    return null;
 }
-setTimeout(() => {
-    showRegisterBtn();
-}, 1000);
+// setTimeout(() => {
+//     showRegisterBtn();
+// }, 1000);
