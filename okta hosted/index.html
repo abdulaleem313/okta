@@ -9,8 +9,8 @@
     <title>{{pageTitle}}</title>
     {{{SignInWidgetResources}}}
 
-    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/style.css">
-    <script src="https://d33h3puy3gluex.cloudfront.net/custom.js"></script>
+    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/preprod/style.css">
+    <script src="https://d33h3puy3gluex.cloudfront.net/preprod/custom.js"></script>
 </head>
 
 <body>
@@ -56,6 +56,11 @@
                 }
             }
         };
+        try {
+
+            var customLinks = showRegisterBtn() ? showRegisterBtn() : [];
+            config.helpLinks.custom = [...config.helpLinks.custom, ...customLinks]
+        } catch (e) { }
 
         // Render the Okta Sign-In Widget
         var oktaSignIn = new OktaSignIn(config);
