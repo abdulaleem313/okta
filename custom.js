@@ -31,9 +31,11 @@ function showRegisterBtn() {
 
         return [{
             text: 'Register',
-            // href: redirectUri + '/signup',
-            click: function(){
+            // href: redirectUri + '/+',
+            click: function(event){
                 document.getElementById("registrationForm").style.display = "block";
+                event.stopPropagation();
+                return;
             }
         }];
     }
