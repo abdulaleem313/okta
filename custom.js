@@ -32,10 +32,8 @@ function showRegisterBtn() {
         return [{
             text: 'Register',
             href: '#', // redirectUri + '/+',
-            click: function(event){
+            click: function(){
                 document.getElementById("registrationForm").style.display = "block";
-                event.stopPropagation();
-                event.stop
                 return;
             }
         }];
