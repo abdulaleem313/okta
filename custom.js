@@ -11,7 +11,9 @@ var domainMapping = [{
     domain: 'https://geoweb.neftex.com/',
     matchingKeys: ['neftex.com']
 }]
-
+function showRegistrationPopup() {
+    document.getElementById("registrationForm").style.display = "block"
+}
 function showRegisterBtn() {
     var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
         && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
@@ -31,10 +33,9 @@ function showRegisterBtn() {
 
         return [{
             text: 'Register',
-            href: '#', // redirectUri + '/+',
+            href: 'javascript:showRegistrationPopup()', // redirectUri + '/+',
             click: function(){
-                document.getElementById("registrationForm").style.display = "block";
-                return;
+            
             }
         }];
     }
