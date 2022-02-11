@@ -33,11 +33,11 @@ function showRegisterBtn() {
 
         return [{
             text: 'Register',
-            href: 'javascript:showRegistrationPopup()', // redirectUri + '/+',
-            click: function(){
-            
-            }
+            href: redirectUri + '/signup'
         }];
     }
-    return null;
+    return  [{
+        text: 'Register',
+        href: 'javascript:showRegistrationPopup()'
+    }];
 }
