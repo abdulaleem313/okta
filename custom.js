@@ -14,6 +14,9 @@ var domainMapping = [{
 function showRegistrationPopup() {
     document.getElementById("registrationForm").style.display = "block"
 }
+function hideRegistrationPopup() {
+    document.getElementById("registrationForm").style.display = "none"
+}
 function showRegisterBtn() {
     var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
         && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
