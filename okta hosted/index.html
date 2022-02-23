@@ -69,10 +69,8 @@
 
     /* Add styles to the form container */
     .form-container {
-      min-width: 350px;
-
-      max-width: 400px;
-      padding: 10px;
+      width: 670px;;
+      padding: 50px;
       background-color: white;
     }
 
@@ -82,8 +80,8 @@
       width: 100%;
       padding: 15px;
       margin: 5px 0 22px 0;
-      border: none;
-      background: #f1f1f1;
+      border: 1px solid #bbb;
+      background: #ffffff;
     }
 
     /* When the inputs get focus, do something */
@@ -126,11 +124,28 @@
 
 <body>
 
-  <div class="auth-box" id="auth-box">
+  <div class="auth-box">
     <div class="hal"></div>
     <div class="ienergy"></div>
     <div class="okta-auth">
       <div id="okta-login-container"></div>
+      
+      <form action="/register.php" class="form-container"  style="display:none" id="registrationForm">
+        <h1>Register</h1>
+
+        <label for="name" class="reg-form-label"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" required>
+
+        <label for="company" class="reg-form-label"><b>Company</b></label>
+        <input type="text" placeholder="Enter Company" name="company" required>
+
+        <label for="email" class="reg-form-label"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <button type="submit" class="btn">Register</button>
+        <button type="button" class="btn" onclick="hideRegistrationPopup();">Back to sign
+          in</button>
+      </form>
     </div>
   </div>
 
@@ -191,22 +206,6 @@
     <div class="hal"></div>
     <div class="ienergy"></div>
     <div class="okta-auth">
-      <form action="/register.php" class="form-container">
-        <h1>Register</h1>
-
-        <label for="name" class="reg-form-label"><b>Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" required>
-
-        <label for="company" class="reg-form-label"><b>Company</b></label>
-        <input type="text" placeholder="Enter Company" name="company" required>
-
-        <label for="email" class="reg-form-label"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
-
-        <button type="submit" class="btn">Register</button>
-        <button type="button" class="btn" onclick="hideRegistrationPopup();">Back to sign
-          in</button>
-      </form>
     </div>
   </div>
 

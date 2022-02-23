@@ -13,12 +13,12 @@ var domainMapping = [{
 }]
 function showRegistrationPopup() {
     document.getElementById("registrationForm").style.display = "grid";
-    document.getElementById("auth-box").style.display = "none";
+    document.getElementById("okta-login-container").style.display = "none";
 }
 
 function hideRegistrationPopup() {
     document.getElementById("registrationForm").style.display = "none"
-    document.getElementById("auth-box").style.display = "grid";
+    document.getElementById("okta-login-container").style.display = "block";
 }
 function showRegisterBtn() {
     var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
