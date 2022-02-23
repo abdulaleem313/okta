@@ -12,10 +12,13 @@ var domainMapping = [{
     matchingKeys: ['neftex.com']
 }]
 function showRegistrationPopup() {
-    document.getElementById("registrationForm").style.display = "block"
+    document.getElementById("registrationForm").style.display = "grid";
+    document.getElementById("auth-box").style.display = "none";
 }
+
 function hideRegistrationPopup() {
     document.getElementById("registrationForm").style.display = "none"
+    document.getElementById("auth-box").style.display = "grid";
 }
 function showRegisterBtn() {
     var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
@@ -39,7 +42,7 @@ function showRegisterBtn() {
             href: redirectUri + '/signup'
         }];
     }
-    return  [{
+    return [{
         text: 'Register',
         href: 'javascript:showRegistrationPopup()'
     }];

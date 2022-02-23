@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/style.css">
 
 
-
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -41,7 +40,7 @@
       display: none;
       position: fixed;
       bottom: 0;
-      right: 15px;
+      /* right: 15px; */
       /* border: 3px solid #f1f1f1; */
       z-index: 10;
 
@@ -54,20 +53,25 @@
     .form-outer-container {
 
       display: flex;
-      width: 300px;
-      margin: 10% 30%;
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+      padding-top: 5%;
     }
 
     .ienergy-registration-image {
 
       box-shadow: 4px 4px 20px 3px black;
-      background-image: url(./images/ienergy-logo.jpg);
+      background-image: url(https://d33h3puy3gluex.cloudfront.net/images/ienergy-logo.jpg);
       background-repeat: round;
+      min-width: 90%;
     }
 
     /* Add styles to the form container */
     .form-container {
-      max-width: 350px;
+      min-width: 350px;
+
+      max-width: 400px;
       padding: 10px;
       background-color: white;
     }
@@ -122,7 +126,7 @@
 
 <body>
 
-  <div class="auth-box">
+  <div class="auth-box" id="auth-box">
     <div class="hal"></div>
     <div class="ienergy"></div>
     <div class="okta-auth">
@@ -182,9 +186,11 @@
   </script>
 
 
-  <div class="form-popup" style="display:none" id="registrationForm">
-    <div class="form-outer-container">
-      <div class="ienergy-registration-image"></div>
+
+  <div class="auth-box" style="display:none" id="registrationForm">
+    <div class="hal"></div>
+    <div class="ienergy"></div>
+    <div class="okta-auth">
       <form action="/register.php" class="form-container">
         <h1>Register</h1>
 
@@ -198,10 +204,19 @@
         <input type="text" placeholder="Enter Email" name="email" required>
 
         <button type="submit" class="btn">Register</button>
-        <button type="button" class="btn cancel" onclick="hideRegistrationPopup()">Back to sign in</button>
+        <button type="button" class="btn" onclick="hideRegistrationPopup();">Back to sign
+          in</button>
       </form>
     </div>
   </div>
+
+  <!-- 
+  <div class="form-popup" style="display:none" id="registrationForm">
+    <div class="form-outer-container">
+      <div class="ienergy-registration-image"></div>
+  
+    </div>
+  </div> -->
 
 </body>
 
