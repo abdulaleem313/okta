@@ -50,26 +50,13 @@
       background: linear-gradient(87deg, rgba(81, 0, 0, 1) 0%, rgba(34, 0, 0, 1) 100%) !important;
     }
 
-    .form-outer-container {
 
-      display: flex;
-      margin: auto;
-      width: 50%;
-      padding: 10px;
-      padding-top: 5%;
-    }
-
-    .ienergy-registration-image {
-
-      box-shadow: 4px 4px 20px 3px black;
-      background-image: url(https://d33h3puy3gluex.cloudfront.net/images/ienergy-logo.jpg);
-      background-repeat: round;
-      min-width: 90%;
-    }
 
     /* Add styles to the form container */
     .form-container {
-      width: 670px;;
+      width: 670px;
+      min-height: 500px;
+      padding: 10px 30px;
       padding: 50px;
       background-color: white;
     }
@@ -129,8 +116,8 @@
     <div class="ienergy"></div>
     <div class="okta-auth">
       <div id="okta-login-container"></div>
-      
-      <form action="/register.php" class="form-container"  style="display:none" id="registrationForm">
+
+      <form action="/register.php" class="form-container" style="display:none" id="registrationForm">
         <h1>Register</h1>
 
         <label for="name" class="reg-form-label"><b>Name</b></label>
