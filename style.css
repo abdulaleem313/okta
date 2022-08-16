@@ -35,7 +35,7 @@ body {
 }
 
 .hal {
-	background-image: url('./landmak-logo-white.png');
+	background-image: url('./images/landmak-logo-white.png');
 	background-repeat: no-repeat;
 	font-family: 'Michroma', sans-serif;
 	display: flex;
@@ -51,8 +51,8 @@ body {
 	font-family: 'Yantramanav', sans-serif;
 	font-size: 6em;
 	min-width: 450px;
-	box-shadow: 4px 4px 20px 3px black;
-	background-image: url('./ienergy-logo.jpg');
+	/* box-shadow: 4px 4px 20px 3px black; */
+	background-image: url('./images/ienergy-logo.jpg');
 	background-repeat: round;
 }
 
@@ -126,17 +126,17 @@ body {
 
 
 #okta-sign-in .sms-button {
-	background: url(https://abdulaleem313.github.io/okta/icons/Login_Text.svg) no-repeat !important;
+	background: url(./images/Login_Text.svg) no-repeat !important;
 	background-size: 50px 50px !important;
 }
 
 #okta-sign-in .call-button {
-	background: url(https://abdulaleem313.github.io/okta/icons/Login_Call.svg) no-repeat !important;
+	background: url(/images/Login_Call.svg) no-repeat !important;
 	background-size: 50px 50px !important;
 }
 
 #okta-sign-in .email-button {
-	background: url(https://abdulaleem313.github.io/okta/icons/Login_Email.svg) no-repeat !important;
+	background: url(/images/Login_Email.svg) no-repeat !important;
 	background-size: 50px 50px !important;
 }
 #okta-sign-in.auth-container .okta-form-subtitle, #okta-sign-in.auth-container .okta-form-label {
@@ -160,7 +160,7 @@ body {
 }
 
 .auth-box .okta-auth {
-	box-shadow: 4px 4px 20px 3px black;
+	/* box-shadow: 4px 4px 20px 3px black; */
 }
 
 #okta-sign-in .icon {
