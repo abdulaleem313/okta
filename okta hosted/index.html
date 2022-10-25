@@ -9,8 +9,8 @@
     <title>{{pageTitle}}</title>
     {{{SignInWidgetResources}}}
 
-    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/style.css">
-    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/custom.js">
+    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/testenv/style.css">
+    <script src="https://d33h3puy3gluex.cloudfront.net/testenv/custom.js"></script>
 </head>
 
 <body>
@@ -56,6 +56,22 @@
                 }
             }
         };
+        try {
+
+            var customLinks = showRegisterBtn() ? showRegisterBtn() : [];
+            console.log(customLinks);
+            config.helpLinks.custom = [...customLinks, ...config.helpLinks.custom]
+            config.customButtons = [{
+                title: 'Don’t Have An Account? Register Now',
+                className: 'button button-primary',
+                click: () => {
+                    // clicking on the button navigates to another page
+                    window.location.href = `${signUpPage}?solutionName=${solutionName}`;
+                }
+            }]
+            console.log(config.helpLinks);
+            console.log(config);
+        } catch (e) { }
 
         // Render the Okta Sign-In Widget
         var oktaSignIn = new OktaSignIn(config);

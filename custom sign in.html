@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 
 <head>
@@ -8,99 +8,10 @@
 
     <title>{{pageTitle}}</title>
     {{{SignInWidgetResources}}}
-    <style>
-        .loader,
-        .loader:before,
-        .loader:after {
-            background: #ffffff;
-            -webkit-animation: load1 1s infinite ease-in-out;
-            animation: load1 1s infinite ease-in-out;
-            width: 1em;
-            height: 4em;
-        }
-
-        .loader {
-            color: #ffffff;
-            text-indent: -9999em;
-            margin: 88px auto;
-            position: relative;
-            font-size: 11px;
-            -webkit-transform: translateZ(0);
-            -ms-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-animation-delay: -0.16s;
-            animation-delay: -0.16s;
-            left: 50%;
-        }
-
-        .loader:before,
-        .loader:after {
-            position: absolute;
-            top: 0;
-            content: '';
-        }
-
-        .loader:before {
-            left: -1.5em;
-            -webkit-animation-delay: -0.32s;
-            animation-delay: -0.32s;
-        }
-
-        .loader:after {
-            left: 1.5em;
-        }
-
-        @-webkit-keyframes load1 {
-
-            0%,
-            80%,
-            100% {
-                box-shadow: 0 0;
-                height: 4em;
-            }
-
-            40% {
-                box-shadow: 0 -2em;
-                height: 5em;
-            }
-        }
-
-        @keyframes load1 {
-
-            0%,
-            80%,
-            100% {
-                box-shadow: 0 0;
-                height: 4em;
-            }
-
-            40% {
-                box-shadow: 0 -2em;
-                height: 5em;
-            }
-        }
-    </style>
-
-    <style>
-        body {
-            background: linear-gradient(87deg, rgba(81, 0, 0, 1) 0%, rgba(34, 0, 0, 1) 100%) !important;
-        }
-
-        #okta-sign-in {
-
-            margin: unset !important;
-            width: 100% !important;
-        }
-
-        .okta-container .applogin-banner .applogin-background {
-            display: none;
-        }
-
-        #okta-login-container.login-container {
-            margin-top: 0px !important;
-        }
-    </style>
-    <link rel="stylesheet" href="https://test.ienergycloud.solutions/style.css">
+    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/testenv/style.css">
+    <script src="https://d33h3puy3gluex.cloudfront.net/testenv/custom.js"></script>
+    <!-- <link rel="stylesheet" href="https://identity.dev.decisionspace365.io/assets/css/style.css">
+    <script src="https://identity.dev.decisionspace365.io/assets/js/custom.js"></script> -->
 </head>
 
 <body>
@@ -109,10 +20,8 @@
         <div class="hal"></div>
         <div class="ienergy"></div>
         <div class="okta-auth">
-            <div id="okta-login-container">
-            </div>
+            <div id="okta-login-container"></div>
         </div>
-        <div class="loader" id="loader"></div>
     </div>
 
     <!--
@@ -124,158 +33,59 @@
     <script type="text/javascript">
         // "config" object contains default widget configuration
         // with any custom overrides defined in your admin settings.
-        // https://landmarkhosting.oktapreview.com/
 
-
-        var orgUrl = 'https://landmarkhosting.oktapreview.com/'; //URL of Okta Tenant
-        var issuer = 'https://landmarkhosting.oktapreview.com';
-        var webSiteUrl = 'https://landmarkhosting.oktapreview.com/';
-
-
-        // var webSiteUrl = document.URL; //URL of PROD site hosting Login Widget
         let config = {
             ...OktaUtil.getSignInWidgetConfig(),
-            baseUrl: orgUrl,
-            // clientId: '0oax7pypbPV9xxQ0J2p6',
-            clientId: '0oa119wcpmcSdW1Ze0h8',
-            pkce: true,
-                issuer: issuer,
-
-            redirectUri: webSiteUrl,
             i18n: {
                 en: {
                     'password.reset': 'Reset Password',
-                    'password.forgot.sendEmail': 'Reset Password',
+                    'password.forgot.sendEmail': 'Send E-mail',
+                    'password.forgot.sendText': 'Send Text',
+                    'password.forgot.call': 'Voice Call',
                     'errors.E0000004': 'Incorrect login information. After 3 failed attempts your account will be locked.',
                     'errors.E0000069': 'Your account is locked because of too many authentication attempts.',
                     'password.reset.title': 'Reset your password',
                     'recovery.sms.hint': 'Text can only be used if a mobile phone number has been configured.',
                     'recovery.sms': 'Text',
                     'password.reset.title.generic': 'Create new password',
-                    'account.unlock.sendText': 'Send Text'
+                    'account.unlock.sendText': 'Send Text',
+                    'forgotpassword': 'Forgot password',
+                    'unlockaccount': 'Unlock account',
+                    'help': 'Help',
+                    'primaryauth.username.placeholder': 'Email',
+                    'primaryauth.username.tooltip': 'Email'
                 }
-            },
-            authParams: {
-                responseType: ['id_token', 'token'],
-                scopes: ['openid', 'profile'],
-                issuer: issuer,
-            },
-
-            features: {
-                router: true,
-                idpDiscovery: true,
-                rememberMe: true,
-                smsRecovery: true,
-                selfServiceUnlock: true,
-                multiOptionalFactorEnroll: true
             }
-
         };
+        try {
+
+            var customLinks = showRegisterBtn() ? showRegisterBtn() : [];
+          console.log(customLinks);
+            config.helpLinks.custom = [...customLinks, ...config.helpLinks.custom]
+     
+            config.customButtons = [{
+                title: 'Don’t Have An Account? Register Now',
+                className: 'register-btn',
+                click: () => {
+                    // clicking on the button navigates to another page
+                    window.location.href = solution? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
+                }
+            }]
+          console.log(config.helpLinks);
+          console.log(config);
+        } catch (e) { }
 
         // Render the Okta Sign-In Widget
         var oktaSignIn = new OktaSignIn(config);
-
-        async function checkAuthenticatedUser() {
-            var res = await oktaSignIn.authClient.session.get();
-
-            if (res.status === 'ACTIVE') {
-
-                // var tx = await oktaSignIn.authClient.tx.resume(); //.then(a=>console.log(a, 'asdf'))
-                // console.log(tx)
-                console.log(await oktaSignIn.authClient.tokenManager.get('sessionToken'))
-                console.log(await oktaSignIn.authClient.tokenManager.get('idToken'))
-                console.log(await oktaSignIn.authClient.tokenManager.get('token'))
-
-                try {
-
-                    var tokenOrTokens = await oktaSignIn.authClient.token.parseFromUrl()
-                    if (tokenOrTokens[0] && tokenOrTokens[0].claims && tokenOrTokens[0].claims.URLHeader) {
-                        location.href = tokenOrTokens[0].claims.URLHeader;
-                    }
-
-                } catch (e) {
-                    console.log(e) 
-                        // if (oktaSignIn.authClient.isLoginRedirect()) {
-                        // }
-
-                            // try {
-                            //     await oktaSignIn.authClient.handleLoginRedirect();
-                            // } catch (e) {
-                                // log or display error details
-                                console.log(e)
-
-                                var str = decodeURIComponent(window.location.href);
-                                var redirectUrl = str.substr(str.indexOf("?fromURI=") + 9);
-
-                                // if (str.includes("?fromURI")) {
-                                //     oktaSignIn.authClient.session.setCookieAndRedirect(redirectUrl);
-                                // } else {
-                                    try { 
-                                var aa = await oktaSignIn.authClient.token.getWithRedirect({
-                                    // redirectUri: webSiteUrl + redirectUrl,
-                                    responseType: ['id_token', 'token'],
-                                    // scopes: ['openid', 'profile'],
-                                }) //.then(r => console.log(r));
-                                console.log(aa)
-
-                            } catch (e) {
-                    console.log(e) }
-                                // }
-                            // }
-                    
-                }
-            } else {
-                oktaSignIn.renderEl(
-                    { el: '#okta-login-container' },
-                    OktaUtil.completeLogin,
-                    function (res) {
-                        if (res.status === 'IDP_DISCOVERY') {
-                            res.idpDiscovery.redirectToIdp(webSiteUrl);
-                        };
-                        if (res.status === 'SUCCESS') {
-                            //replaced with getQueryString to handle IE issues with URL
-                            c = getQueryString("fromURI");
-                            if (c)
-                                location.href = c;
-
-                            else
-                                location.href = res[0].claims.URLHeader //pulls users ds365 tenant path from Okta
-                        }
-                    });
-                document.getElementById("loader").remove();
+        oktaSignIn.renderEl({ el: '#okta-login-container' },
+            OktaUtil.completeLogin,
+            function (error) {
+                // Logs errors that occur when configuring the widget.
+                // Remove or replace this with your own custom error handler.
+                console.log(error.message, error);
             }
-        }
-        checkAuthenticatedUser();
-        // oktaSignIn.renderEl({ el: '#okta-login-container' },
-        //     OktaUtil.completeLogin,
-        //     function(error) {
-        //         // Logs errors that occur when configuring the widget.
-        //         // Remove or replace this with your own custom error handler.
-        //         console.log(error.message, error);
-        //     }
-        // );
-
-        function getQueryString() {
-            var key = false, res = {}, itm = null;
-            // get the query string without the ?
-            var qs = location.search.substring(1);
-            // check for the key as an argument
-            if (arguments.length > 0 && arguments[0].length > 1)
-                key = arguments[0];
-            // make a regex pattern to grab key/value
-            var pattern = /([^&=]+)=([^&]*)/g;
-            // loop the items in the query string, either
-
-            // find a match to the argument, or build an object
-            // with key/value pairs
-            while (itm = pattern.exec(qs)) {
-                if (key !== false && decodeURIComponent(itm[1]) === key)
-                    return decodeURIComponent(itm[2]);
-                else if (key === false)
-                    res[decodeURIComponent(itm[1])] = decodeURIComponent(itm[2]);
-            }
-            return key === false ? res : null;
-        }
+        );
+      
     </script>
 </body>
 
