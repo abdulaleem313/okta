@@ -116,8 +116,8 @@ document.addEventListener("DOMContentLoaded", function() {
  
   fetch(`https://identity.dev.decisionspace365.io/users/configurations/appIntegration/configurations/${host}`)
   .then(r=>r.json()).then(d=>{
-    solutionConfig = r;
-    console.log(r)
+    solutionConfig =d;
+    console.log(d)
 }).finally(()=> {
 
     
