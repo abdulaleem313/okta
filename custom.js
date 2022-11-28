@@ -78,8 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 let logo = document.getElementsByClassName("ienergy")[0];
                 let smallLogo = document.getElementsByClassName("auth-org-logo")[0];
                 if (foundSolution && logo) {
-                    smallLogo.setAttribute('src', `https://identity.${env}.decisionspace365.io/${foundSolution.logo.path}`);
-                    logo.setAttribute('style', `background-image: url("https://identity.${env}.decisionspace365.io/assets/images/gcp/${foundSolution.bigLogo}")`);
+                    if(foundSolution.logo && foundSolution.logo.path) {
+                        smallLogo.setAttribute('src', `https://identity.${env}.decisionspace365.io/${foundSolution.logo.path}`);
+                    }
+
+                    if(foundSolution.bigLogo) {
+                        logo.setAttribute('style', `background-image: url("https://identity.${env}.decisionspace365.io/assets/images/gcp/${foundSolution.bigLogo}")`);
+                    }
+                    
                 } else {
                     if (logo) {
                         logo.classList.add('ienergy-logo');
