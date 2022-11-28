@@ -1,14 +1,12 @@
-// domainMapping keycloack URLs i.e https://dssecurity.dsif2.devint.decisionspace365.io/auth/realms/DecisionSpace_Integration_Server/broker/okta/endpoint'
-
-// README
-// purpose of this code is to show a REGISTER button, and if user coming from application A it should send user to CURRENT_SIGNUP_PAGE_URL (i.e identity application prod/dev/qa env) with a query solution=A
-
-// var DEFAULT_SIGNUP_PAGE_URL = `https://identity.devint.decisionspace365.io/auth/signup?solution=ds365`; // if user directly land on login page/ not coming from applicaitons
-var signUpPage = `https://identity.devint.decisionspace365.io/auth/signup`;
-let env = 'devint';
+var signUpPage = `https://identity.decisionspace365.io/auth/signup`;
+let env = '';
 if (window.location.href && window.location.href.indexOf('login.dawlmkscandev02.landmarksoftware.cloud') !== -1) {
     signUpPage = `https://identity.dev.decisionspace365.io/auth/signup`;
     env = 'dev';
+}
+if (window.location.href && window.location.href.indexOf('login-preview.ienergycloud.solutions') !== -1) {
+    signUpPage = `https://identity.devint.decisionspace365.io/auth/signup`;
+    env = 'devint';
 }
 var solution;
 var host;
