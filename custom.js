@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 });
 
-function generateCustomBtn(config) {
+var generateCustomBtn = function (config) {
     config.customButtons = [...config.customButtons, {
         title: 'Don’t Have An Account? Register Now',
         className: 'register-btn',
