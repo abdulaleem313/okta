@@ -87,4 +87,5 @@ function generateCustomBtn(config) {
             window.location.href = solution? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
         }
     }]
+    return config;
 }
