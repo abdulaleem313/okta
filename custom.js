@@ -12,7 +12,7 @@ if (window.location.href && window.location.href.indexOf('login.dawlmkscandev02.
 }
 var solution;
 var host;
- 
+
 function getSolution() {
     var solution;
     var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
@@ -77,15 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
 });
-
-var generateCustomBtn = function (config) {
-    config.customButtons = [...config.customButtons, {
-        title: 'Don’t Have An Account? Register Now',
-        className: 'register-btn',
-        click: () => {
-            // clicking on the button navigates to another page
-            window.location.href = solution? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
-        }
-    }]
-    return config;
-}
+getSolution()
+var customButtons = [{
+    title: 'Don’t Have An Account? Register Now',
+    className: 'register-btn',
+    click: () => {
+        // clicking on the button navigates to another page
+        window.location.href = solution ? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
+    }
+}] 
