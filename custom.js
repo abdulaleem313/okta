@@ -12,6 +12,48 @@ if (window.location.href && window.location.href.indexOf('login.dawlmkscandev02.
 }
 var solution;
 var host;
+var customButtons;
+function showRegisterBtn() {
+    if (signUpPage === `https://identity.dev.decisionspace365.io/auth/signup`) {
+        return; // dont show for dev
+    }
+    var solution = '';
+    var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
+        && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
+    if (requestUrl && OktaUtil.getRequestContext().authentication.request.state) {
+        var state = OktaUtil.getRequestContext().authentication.request.state;
+        solution = state && state.split('.').pop() ? state.split('.').pop() : solution;
+
+    }
+    var redirectUri;
+    var refUrl = requestUrl ? new URL(requestUrl) : null;
+    if (refUrl && refUrl.host) {
+        host = refUrl.host;
+    }
+
+    if (requestUrl && refUrl && refUrl.origin && solution) {
+        // if there is some solution in state redirect to devint
+        return [{
+            text: 'Don’t Have An Account? Register Now',
+            href: `${signUpPage}?solution=${solution}&host=${host}`
+        }];
+    }
+
+    customButtons = [{
+        title: 'Don’t Have An Account? Register Now',
+        className: 'register-btn',
+        click: () => {
+            // clicking on the button navigates to another page
+            window.location.href = solution ? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
+        }
+    }]
+    // return [{
+    //     text: 'Don’t Have An Account? Register Now',
+    //     href: signUpPage
+    // }];
+    return [];
+
+}
 
 function getSolution() {
     var solution;
@@ -29,6 +71,34 @@ function getSolution() {
     }
     return solution;
 }
+
+
+// function showRegisterBtnFunc() {
+//     // show register button
+//     var signUpHeading = document.getElementsByClassName('okta-form-title o-form-head')[0]; 
+//     var registerLink = document.createElement('a' );
+//     let innerText = signUpHeading.innerHTML;
+
+//     registerLink.innerHTML = 'Donâ€™t have an account? Register now';
+//     // registerLink.className = 'register-link';
+//     registerLink.setAttribute('style', `
+//     display: block;
+//     margin-bottom: 30px;
+//     text-decoration-line: underline;
+//     color: #3275B8;
+//     font-weight: 500;
+//     font-size: 12px;`);
+//     if(solutionName) {
+//         registerLink.setAttribute('href', `${signUpPage}?solution=${solution}`);
+//     } else {
+//         registerLink.setAttribute('href', `${signUpPage}`);
+//     }
+//     // only show in sign in page
+//     if(innerText.toLocaleLowerCase().indexOf('sign in') !== -1) {
+//         signUpHeading.after(registerLink, signUpHeading.nextElementSibling );
+//     }
+
+// }
 
 // Executes after DOM is loaded (before images and CSS):
 
@@ -77,12 +147,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
 });
-getSolution()
-var customButtons = [{
-    title: 'Don’t Have An Account? Register Now',
-    className: 'register-btn',
-    click: () => {
-        // clicking on the button navigates to another page
-        window.location.href = solution ? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
-    }
-}] 
