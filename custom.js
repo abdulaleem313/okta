@@ -12,9 +12,6 @@ var solution;
 var host;
 var customButtons;
 function showRegisterBtn() {
-    if (signUpPage === `https://identity.dev.decisionspace365.io/auth/signup`) {
-        return; // dont show for dev
-    }
     var solution = '';
     var requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
         && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
