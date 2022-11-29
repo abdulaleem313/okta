@@ -8,10 +8,10 @@
 
     <title>{{pageTitle}}</title>
     {{{SignInWidgetResources}}}
-    <link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/testenv/style.css">
-    <script src="https://d33h3puy3gluex.cloudfront.net/testenv/custom.js"></script>
-    <!-- <link rel="stylesheet" href="https://identity.dev.decisionspace365.io/assets/css/style.css">
-    <script src="https://identity.dev.decisionspace365.io/assets/js/custom.js"></script> -->
+     <!--<link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/testenv/style.css">
+    <script src="https://d33h3puy3gluex.cloudfront.net/testenv/custom.js"></script> -->
+    <link rel="stylesheet" href="https://identity.dev.decisionspace365.io/assets/css/style.css">
+    <script src="https://abdulaleem313.github.io/okta/custom.js"></script>
 </head>
 
 <body>
@@ -59,19 +59,10 @@
         };
         try {
 
-            var customLinks = showRegisterBtn() ? showRegisterBtn() : [];
-          console.log(customLinks);
-            config.helpLinks.custom = [...customLinks, ...config.helpLinks.custom]
+            var customButtons = showRegisterBtn() ? showRegisterBtn() : []; 
      
-            config.customButtons = [{
-                title: 'Don’t Have An Account? Register Now',
-                className: 'register-btn',
-                click: () => {
-                    // clicking on the button navigates to another page
-                    window.location.href = solution? `${signUpPage}?solution=${solution}&host=${host}` : signUpPage;
-                }
-            }]
-          console.log(config.helpLinks);
+            config.customButtons = [...config.customButtons, ...customButtons]
+          console.log(customButtons);
           console.log(config);
         } catch (e) { }
 
@@ -85,6 +76,7 @@
                 console.log(error.message, error);
             }
         );
+      
       
     </script>
 </body>
