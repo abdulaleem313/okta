@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div id="welcome-ad" style="background-color: ${brand.theme.secondaryColor}; margin: 0">
+    <table style="font-family: 'Proxima Nova', 'Century Gothic', Arial, Verdana, sans-serif; font-size: 14px; color: #5e5e5e; width:98%; max-width: 600px; float: none; margin: 0 auto;" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
+        <tr align="middle"><td style="padding-top: 30px; padding-bottom: 32px;"><img src="https://identity.decisionspace365.io/assets/images/email_header.png"></td></tr>
+        <tr bgcolor="#ffffff"><td>
+            <table bgcolor="#ffffff" style="width: 100%; line-height: 20px; padding: 32px; border: 1px solid; border-color: #f0f0f0;" cellpadding="0">
+                <tr>
+                    <td style="color: #5e5e5e; font-size: 22px; line-height: 22px;">
+                        ${org.name} - Welcome to Okta!
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px; vertical-align: bottom;">
+                        Hi $!{StringTool.escapeHtml($!{user.profile.firstName})},
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Your organization is using Okta to manage your web applications. This means you can use your LDAP password to sign in to a single, secure home page and get access to all your web applications. Watch this short video to learn more: <a href="https://www.okta.com/intro-to-okta/" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">https://www.okta.com/intro-to-okta/</span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Your system administrator has created an Okta user account for you.<br/>
+                        <strong>Click the following link to sign in to your Okta home page:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" valign="top">
+                            <tr>
+                                <td align="center" style="height: 32px; padding-top: 24px;"><a id="reset-password-link" href="${baseURL}" style="text-decoration: none;"><span style="padding: 9px 32px 7px 31px; border: 1px solid; text-align: center; cursor: pointer; color: #fff; border-radius: 3px; background-color: ${brand.theme.primaryColor}; border-color: ${brand.theme.primaryColor}; box-shadow: ${brand.theme.primaryColor} 0 1px 0;">Sign In</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Your Okta username is <strong>${user.profile.login}</strong><br/>
+                        Your Okta password is the same as your <strong>LDAP password.</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        If you experience difficulties accessing your account, send a help request to your system administrator using the link: <a href="${baseURL}/help/login" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">${baseURL}/help/login</span></a>
+                    </td>
+                </tr>
+            </table>
+        </td></tr>
+        <tr>
+            <td style="font-size: 12px; padding: 16px 0 30px 50px; color: #999;">
+                This is an automatically generated message from <a href="https://www.okta.com" style="color: rgb(97,97,97);">Okta</a>. Replies are not monitored or answered.
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

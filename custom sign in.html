@@ -1,17 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="none" />
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- Styles generated from theme -->
+    <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+    <!-- Favicon from theme -->
+    <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
 
     <title>{{pageTitle}}</title>
     {{{SignInWidgetResources}}}
-     <!--<link rel="stylesheet" href="https://d33h3puy3gluex.cloudfront.net/testenv/style.css">
-    <script src="https://d33h3puy3gluex.cloudfront.net/testenv/custom.js"></script> -->
-    <link rel="stylesheet" href="https://identity.dev.decisionspace365.io/assets/css/style.css">
-    <script src="https://abdulaleem313.github.io/okta/custom.js"></script>
+    <link rel="stylesheet" href="https://identity.decisionspace365.io/assets/css/style.css">
+    <script src="https://identity.decisionspace365.io/assets/js/custom.js"></script>
 </head>
 
 <body>
@@ -61,9 +62,7 @@
 
             var customButtons = showRegisterBtn() ? showRegisterBtn() : []; 
      
-            config.customButtons = [...config.customButtons, ...customButtons]
-          console.log(customButtons);
-          console.log(config);
+            config.customButtons = [...config.customButtons, ...customButtons];
         } catch (e) { }
 
         // Render the Okta Sign-In Widget
