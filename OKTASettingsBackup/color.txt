@@ -1,0 +1,2 @@
+primaryColor: #cd0707
+secondaryColor: #ebebed

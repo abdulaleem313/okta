@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div style="background-color: ${brand.theme.secondaryColor}; margin: 0">
+    <table style="font-family: 'Proxima Nova', 'Century Gothic', Arial, Verdana, sans-serif; font-size: 14px; color: #5e5e5e; width:98%; max-width: 600px; float: none; margin: 0 auto;" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
+        <tr align="middle"><td style="padding-top: 30px; padding-bottom: 32px;"><img src="${brand.theme.logo}" height="37"></td></tr>
+        <tr bgcolor="#ffffff"><td>
+            <table bgcolor="#ffffff" style="width: 100%; line-height: 20px; padding: 32px; border: 1px solid; border-color: #f0f0f0;" cellpadding="0">
+                <tr>
+                    <td style="color: #5e5e5e; font-size: 22px; line-height: 22px;">
+                        ${org.name} – žádost o odemknutí účtu Okta
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px; vertical-align: bottom;">
+                        $!{StringTool.escapeHtml($!{user.profile.firstName})} – dobrý den!
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Dostali jsme žádost o odemknutí vašeho účtu. Pokud jste tuto žádost neodeslali, kontaktujte ihned správce. Někdo se možná pokouší získat přístup k vašemu účtu.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Pokud jste tuto žádost odeslali vy: Váš účet není uzamčený a měli byste se být schopni přihlásit. Pokud máte potíže s přihlášením, zkuste resetovat své heslo nebo kontaktujte správce.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Pokud budete mít při přistupování ke svému účtu potíže, zašlete žádost o pomoc svému správci.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 24px;">
+                        Přejděte na stránku <a href="${baseURL}/help/login" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">Pomoc s přihlašováním</span></a>. Potom klikněte na odkaz Požádat o pomoc.
+                    </td>
+                </tr>
+            </table>
+        </td></tr>
+        <tr>
+            <td style="font-size: 12px; padding: 16px 0 30px 50px; color: #999;">
+                Tuto zprávu automaticky vygeneroval systém <a href="https://www.okta.com" style="color: rgb(97,97,97);">Okta</a>. Odpovědi nejsou sledovány, ani se na ně nereaguje.
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
