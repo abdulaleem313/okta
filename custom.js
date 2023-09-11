@@ -112,7 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //     {"solution":"Envana","solutionKeycloakName":"esg365-app","loginUrl":"https://esg365-app.dsif.dawlmknvidmo01.ienergycloud.solutions/"},
     //     {"solution":"sample","solutionKeycloakName":"sample","loginUrl":"https://sample.devint.decisionspace365.io/"}
     // ];
-    solution = getSolution();
+    let solution = getSolution();
+    let host = getHost()
     let solutionConfig;
     if (host) {
         fetch(`${BASE_URL}/users/configurations/appIntegration/configurations/${host}`)
