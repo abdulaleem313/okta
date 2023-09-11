@@ -9,18 +9,8 @@ let signUpPage = BASE_URL + '/auth/signup';
 
 function showRegisterBtn() {
     let solution = getSolution();
-    let requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
-        && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
-    if (requestUrl && OktaUtil.getRequestContext().authentication.request.state) {
-        let state = OktaUtil.getRequestContext().authentication.request.state;
-        solution = state && state.split('.').pop() ? state.split('.').pop() : solution;
-
-    }
-    let refUrl = requestUrl ? new URL(requestUrl) : null;
-    if (refUrl && refUrl.host) {
-        host = refUrl.host;
-    }
-
+    let host = getHost()
+    
     return [{
         title: 'Create an Account',
         className: 'register-btn',
