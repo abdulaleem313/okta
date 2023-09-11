@@ -11,34 +11,35 @@ function showRegisterBtn() {
     let solution = getSolution();
     let host = getHost()
 
-    let mapperData = getMapperData()
+    let mapperData = getMapperData();
+
+    if (solution) {
+        solution = String(solution).toLowerCase();
+    }
+    // clicking on the button navigates to another page
+    // Check host and solution conditions
+    const allowedHosts = [
+        'dssecurity.dsif.dev.decisionspace365.io',
+        'dssecurity.dsif2.devint.decisionspace365.io',
+        'dssecurity.console-app.decisionspace365.io'
+    ];
+
+    const allowedSolutions = [
+        'ds365',
+        'essentials',
+        'vdr',
+        'fdp',
+        'co2storage',
+        'cquest'
+    ];
+
+    if (allowedHosts.includes(host) && allowedSolutions.includes(solution)) {
+        signUpPage = signUpPage.replace('identity', 'console');
+    }
     return [{
         title: 'Create an Account',
         className: 'register-btn',
         click: () => {
-            if (solution) {
-                solution = String(solution).toLowerCase();
-            }
-            // clicking on the button navigates to another page
-            // Check host and solution conditions
-            const allowedHosts = [
-                'dssecurity.dsif.dev.decisionspace365.io',
-                'dssecurity.dsif2.devint.decisionspace365.io',
-                'dssecurity.console-app.decisionspace365.io'
-            ];
-
-            const allowedSolutions = [
-                'ds365',
-                'essentials',
-                'vdr',
-                'fdp',
-                'co2storage',
-                'cquest'
-            ];
-
-            if (allowedHosts.includes(host) && allowedSolutions.includes(solution)) {
-                signUpPage = signUpPage.replace('identity', 'console');
-            }
             let matchedSolution;
             if (mapperData && mapperData.length) {
                 for (const s of mapperData) {
@@ -73,7 +74,7 @@ async function getMapperData() {
     solution = getSolution();
     host = getHost();
     try {
-        const response = await fetch(`${baseUrl}/users/configurations/appIntegration/configurations/mapper`);
+        const response = await fetch(`${BASE_URL}/users/configurations/appIntegration/configurations/mapper`);
         return await response.json();
     } catch (error) {
         console.error('Error fetching mapper data:', error);
