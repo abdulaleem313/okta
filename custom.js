@@ -83,6 +83,7 @@ function showRegisterBtn() {
     }]
 }
 function getHost() {
+    let host;
     let requestUrl = OktaUtil && OktaUtil.getRequestContext() && OktaUtil.getRequestContext().authentication
         && OktaUtil.getRequestContext().authentication.request && OktaUtil.getRequestContext().authentication.request.redirect_uri;
 
