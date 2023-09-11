@@ -10,7 +10,8 @@ let signUpPage = BASE_URL + '/auth/signup';
 function showRegisterBtn() {
     let solution = getSolution();
     let host = getHost()
-    
+
+    let mapperData = getMapperData()
     return [{
         title: 'Create an Account',
         className: 'register-btn',
@@ -38,49 +39,45 @@ function showRegisterBtn() {
             if (allowedHosts.includes(host) && allowedSolutions.includes(solution)) {
                 signUpPage = signUpPage.replace('identity', 'console');
             }
-
-            let mapper;
             let matchedSolution;
-            try {
-                fetch(`${BASE_URL}/users/configurations/appIntegration/configurations/mapper`)
-                .then(r => r.json()).then(d => {
-                    mapper = d;
-                    console.log(d)
-                })
-                .catch(error => {
-                    console.error('Error fetching mapper data:', error);
-                }).finally(() => {
-                    if (mapper && mapper.length) {
-                        for (const s of mapper) {
-                            let foundKeyHost;
-                            if (s && s.children) {
-                                foundKeyHost = s.children.find(sol =>
-                                    sol.solutionKeycloakName.toLowerCase() === solution &&
-                                    sol.keycloakHostName.toLowerCase() === host.toLowerCase()
-                                );
-                            }
-                            if (foundKeyHost) {
-                                matchedSolution = s;
-                                break; // Exit loop if a match is found
-                            }
-                        }
+            if (mapperData && mapperData.length) {
+                for (const s of mapperData) {
+                    let foundKeyHost;
+                    if (s && s.children) {
+                        foundKeyHost = s.children.find(sol =>
+                            sol.solutionKeycloakName.toLowerCase() === solution &&
+                            sol.keycloakHostName.toLowerCase() === host.toLowerCase()
+                        );
                     }
-                    if (matchedSolution) {
-                        solution = matchedSolution.solutionKeycloakName;
-                        host = matchedSolution.keycloakHostName;
+                    if (foundKeyHost) {
+                        matchedSolution = s;
+                        break; // Exit loop if a match is found
                     }
-
-                    if (solution && host) {
-                        window.location.href = `${signUpPage}?solution=${solution}&host=${host}`;
-                    } else {
-                        window.location.href = signUpPage;
-                    }
-                })
-            } catch (error) {
-                console.error('Error fetching mapper data:', error);
+                }
             }
+            if (matchedSolution) {
+                solution = matchedSolution.solutionKeycloakName;
+                host = matchedSolution.keycloakHostName;
+            }
+
+            if (solution && host) {
+                window.location.href = `${signUpPage}?solution=${solution}&host=${host}`;
+            } else {
+                window.location.href = signUpPage;
+            }
+
         }
     }]
+}
+async function getMapperData() {
+    solution = getSolution();
+    host = getHost();
+    try {
+        const response = await fetch(`${baseUrl}/users/configurations/appIntegration/configurations/mapper`);
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching mapper data:', error);
+    }
 }
 function getHost() {
     let host;
