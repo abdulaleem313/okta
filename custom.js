@@ -6,12 +6,12 @@ if (window.location.href && window.location.href.indexOf('login-preview.ienergyc
     BASE_URL = `https://identity.devint.decisionspace365.io`;
 }
 let signUpPage = BASE_URL + '/auth/signup';
-
-async function showRegisterBtn() {
+let mapperData;
+function showRegisterBtn() {
     let solution = getSolution();
     let host = getHost()
 
-    let mapperData = await getMapperData();
+    let mapper = getMapperData();
 
     if (solution) {
         solution = String(solution).toLowerCase();
@@ -76,7 +76,7 @@ async function getMapperData() {
     host = getHost();
     try {
         const response = await fetch(`${BASE_URL}/users/configurations/appIntegration/configurations/mapper`);
-        return await response.json();
+        mapperData = await response.json();
     } catch (error) {
         console.error('Error fetching mapper data:', error);
     }
