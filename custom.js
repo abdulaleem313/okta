@@ -7,11 +7,11 @@ if (window.location.href && window.location.href.indexOf('login-preview.ienergyc
 }
 let signUpPage = BASE_URL + '/auth/signup';
 
-function showRegisterBtn() {
+async function showRegisterBtn() {
     let solution = getSolution();
     let host = getHost()
 
-    let mapperData = getMapperData();
+    let mapperData = await getMapperData();
 
     if (solution) {
         solution = String(solution).toLowerCase();
@@ -30,6 +30,7 @@ function showRegisterBtn() {
         'vdr',
         'fdp',
         'co2storage',
+        'enterprise',
         'cquest'
     ];
 
